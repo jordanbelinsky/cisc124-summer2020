@@ -1,3 +1,9 @@
+/*
+    Name: Jordan Belinsky
+    File: Motorcycle.java
+    Purpose: Defines the Motorcycle class which is inherited from parent class Vehicle.
+*/
+
 public class Motorcycle extends Vehicle {
 
     // Constructor for the class
@@ -11,12 +17,5 @@ public class Motorcycle extends Vehicle {
         return "Motorcycle { " +
                 super.toString() +
                 " }";
-    }
-
-    // main() used for testing
-    public static void main(String[] args) throws IllegalVehicle {
-        CarOwner jordan = new CarOwner("Jordan", 18, "Male", "B-1105",1);
-        Motorcycle test = new Motorcycle(1429511, jordan, 245978, "Honda", "CRV", 2019, 4, "ABEW056");
-        System.out.println(test.toString());
     }
 }

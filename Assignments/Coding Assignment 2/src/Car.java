@@ -1,3 +1,9 @@
+/*
+    Name: Jordan Belinsky
+    File: Car.java
+    Purpose: Defines the Car class which is inherited from parent class Vehicle.
+*/
+
 public class Car extends Vehicle {
 
     // Instance variables
@@ -7,8 +13,8 @@ public class Car extends Vehicle {
     // Constructor for the class
     public Car(int regNum, CarOwner owner, double odometerReading, String make, String model, int year, int numWheels, String plateNumber, int numSeats, boolean isSUV) throws IllegalVehicle {
         super(regNum, owner, odometerReading, make, model, year, numWheels, plateNumber);
-        this.numSeats = numSeats;
-        this.isSUV = isSUV;
+        setNumSeats(numSeats);
+        setSUV(isSUV);
     }
 
     // toString to allow for formatting while pulling the parent class instance variables
@@ -21,29 +27,29 @@ public class Car extends Vehicle {
                 " }";
     }
 
-    // Accessor methods for each instance variable
+    /*
+    Accessor methods for each instance variable
+    */
     public int getNumSeats() {
+        // Fetches the number of seats
         return numSeats;
     }
 
     public boolean isSUV() {
+        // Fetches the state of SUV
         return isSUV;
     }
 
-
-    // Mutator methods for each instance variable
+    /*
+    Mutator methods for each instance variable
+    */
     public void setNumSeats(int numSeats) {
+        // Sets the current number of seats
         this.numSeats = numSeats;
     }
 
     public void setSUV(boolean SUV) {
+        // Sets the current state of SUV
         isSUV = SUV;
-    }
-
-    // main() used for testing
-    public static void main(String[] args) throws IllegalVehicle {
-        CarOwner jordan = new CarOwner("Jordan", 18, "Male", "B-1105",1);
-        Car test = new Car(1429511, jordan, 245978, "Honda", "CRV", 2019, 4, "ABEW056", 8, true);
-        System.out.println(test.toString());
     }
 }

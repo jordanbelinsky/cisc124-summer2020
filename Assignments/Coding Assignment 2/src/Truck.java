@@ -1,14 +1,22 @@
+/*
+    Name: Jordan Belinsky
+    File: Truck.java
+    Purpose: Defines the Truck class which is inherited from parent class Vehicle.
+*/
+
 public class Truck extends Vehicle {
 
     // Instance variables
     private boolean isSemi;
     private double loadCapacity;
+    private int numberAxles;
 
     // Constructor for the class
     public Truck(int regNum, CarOwner owner, double odometerReading, String make, String model, int year, int numWheels, String plateNumber, boolean isSemi, double loadCapacity) throws IllegalVehicle {
         super(regNum, owner, odometerReading, make, model, year, numWheels, plateNumber);
-        this.isSemi = isSemi;
-        this.loadCapacity = loadCapacity;
+        setSemi(isSemi);
+        setLoadCapacity(loadCapacity);
+        numberAxles = getNumberAxles(numWheels);
     }
 
     // toString to allow for formatting while pulling the parent class instance variables
@@ -18,37 +26,41 @@ public class Truck extends Vehicle {
                 super.toString() +
                 ", isSemi=" + isSemi +
                 ", loadCapacity=" + loadCapacity +
+                ", numberAxles=" + numberAxles +
                 " }";
     }
 
     // getNumberAxles used to find the number of axles based upon number of wheels
     public int getNumberAxles(int numWheels) {
+        // Integer -> Integer
         return numWheels / 2;
     }
 
 
-    // Accessor methods for each instance variable
+    /*
+    Accessor methods for each instance variable
+    */
     public boolean isSemi() {
+        // Fetches state of Semi
         return isSemi;
     }
 
     public double getLoadCapacity() {
+        // Fetches load capacity
         return loadCapacity;
     }
 
 
-    // Mutator methods for each instance variable
+    /*
+    Mutator methods for each instance variable
+    */
     public void setSemi(boolean semi) {
+        // Sets current state of Semi
         isSemi = semi;
     }
 
-    public void setLoadCapacity(int loadCapacity) {
+    public void setLoadCapacity(double loadCapacity) {
+        // Sets current load capacity
         this.loadCapacity = loadCapacity;
-    }
-
-    public static void main(String[] args) throws IllegalVehicle {
-        CarOwner jordan = new CarOwner("Jordan", 18, "Male", "B-1105",1);
-        Truck test = new Truck(1429511, jordan, 245978, "Honda", "CRV", 2019, 4, "ABEW056", false, 8264);
-        System.out.println(test.toString());
     }
 }
